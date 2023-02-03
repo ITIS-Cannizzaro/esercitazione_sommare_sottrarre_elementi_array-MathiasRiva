@@ -1,0 +1,74 @@
+package sommaEdifferenzaArray;
+import java.util.Scanner;
+public class Riva
+{
+	static int sommaArray=0;
+	static int differenzaArray=0;
+	static int [] N = new int [6];
+	static Scanner in = new Scanner(System.in);
+	public static void main(String[] args)
+	{
+		while(true)
+		{
+			stampaMenu();
+			int scelta = Integer.parseInt(in.nextLine());
+			switch(scelta)
+			{
+				case 1:
+					sommaPari();
+				break;
+				case 2:
+					differenzaDispari();
+				break;
+				case 3:
+					arrayContrario();
+				break;
+				default:
+					System.out.println("Scelta errata, riprova!");
+			}
+		}
+	}
+	static void stampaMenu()
+	{
+		System.out.println("1 - Somma elementi array con indice pari");
+		System.out.println("2 - Sottrai elementi array con indice dispari");
+		System.out.println("3 - L'array inserito al contrario");
+	}
+	static void sommaPari()
+	{
+		for(int i=0; i<N.length; i++)
+		{
+			System.out.println("Inserisci un numero");
+			N[i] = Integer.parseInt(in.nextLine());
+		}
+		for(int i=0; i<N.length; i+=2)
+		{
+			sommaArray += N[i];
+		}
+		System.out.println("La somma degli elementi dell'array con indice pari è: " + sommaArray);
+	}
+	static void differenzaDispari()
+	{
+		for(int i=0; i<N.length; i++)
+		{
+			System.out.println("Inserisci un numero");
+			N[i] = Integer.parseInt(in.nextLine());
+		}
+		for(int i=1; i<N.length; i+=2)
+		{
+			 differenzaArray -= N[i];
+		}
+		System.out.println("La differenza degli elementi dell'array con indice dispari è: " + differenzaArray);
+	}
+	static void arrayContrario()
+	{
+		for(int i=0; i<N.length; i++)
+		{
+			System.out.println("Inserisci un numero");
+			N[i] = Integer.parseInt(in.nextLine());
+		}
+		System.out.println("Il contrario dell'array inserito è:");
+		for (int i=N.length-1; i>=0; i--)
+		System.out.println(N[i]);
+	}
+}
